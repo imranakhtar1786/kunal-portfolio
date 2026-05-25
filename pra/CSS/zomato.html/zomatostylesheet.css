@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-container{
+    position: relative;
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.zomato-logo  {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: white;
+z-index: 2;
+}
+
+.zomato-logo img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.zomato-logo h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.zomato-logo p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.store-btn img {
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.store-btn img:hover {
+    transform: scale(1.05);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #fff;
+}
+
+/* main section */
+.better-food {
+    position: relative;
+   min-height:  100vh;
+    background: #fffaf7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* center text */
+.content h2 {
+    font-size: 48px;
+    color: #ef4f5f;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    color: #555;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* food images */
+.food {
+    position: absolute;
+    width: 160px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.burger {
+    left: 10%;
+    top: 40%
+}
+
+.pizza{
+    right: 12%;
+    bottom: 20%;
+}
+
+.momos{
+    right: 15%;
+    top: 15%;
+}
+
+/* floating animation */
+@keyframes float {
+    0% { transform: translateY(0);}
+    50% {transform: translateY(-15px);}
+    100% { transform: translateY(0);}
+}

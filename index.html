@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NextGrowTech</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- GSAP -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#ffffff;
+      color:#111111;
+      overflow-x:hidden;
+    }
+
+    section{
+      scroll-margin-top:90px;
+    }
+
+    .gradient-text{
+      background:linear-gradient(to right,#facc15,#eab308);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .card-hover{
+      transition:0.4s ease;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-10px);
+    }
+
+    .nav-link{
+      position:relative;
+    }
+
+    .nav-link::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:#facc15;
+      transition:0.4s;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+        </style>
+    </head>
+    <body>
+        <!-- ================= NAVBAR ================= -->
+        <!-- ================= NAVBAR ================= -->
+        <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-lg border-b border-yellow-100">
+            <div class="max-w-7xl mx-auto px-5 lg:px-8 py-4 flex items-center justify-between">
+                <!-- LOGO -->
+                <a href="#home" class="text-2xl lg:text-3xl font-extrabold tracking-wide z-[100]">
+                    NEXT
+                    <span class="text-yellow-400">GROW</span>
+                    TECH
+                </a>
+                <!-- DESKTOP MENU -->
+                <ul class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+                    <li>
+                        <a href="#services" class="nav-link hover:text-yellow-400 duration-300">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav-link hover:text-yellow-400 duration-300">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#results" class="nav-link hover:text-yellow-400 duration-300">
+                            Results
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stories" class="nav-link hover:text-yellow-400 duration-300">
+                            Stories
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#testimonials" class="nav-link hover:text-yellow-400 duration-300">
+                            Clients
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-link hover:text-yellow-400 duration-300">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                <!-- DESKTOP BUTTON -->
+                <a href="#contact" class="hidden md:flex bg-yellow-400 hover:bg-black hover:text-white duration-300 px-5 py-3 rounded-full font-semibold text-sm">
+                    Get Started
+                </a>
+                <!-- MOBILE BUTTON -->
+                <button id="menuBtn" class="md:hidden text-3xl z-[100] relative">
+                    <i id="menuIcon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- ================= MOBILE OVERLAY ================= -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 z-[80] hidden opacity-0 transition-all duration-300"></div>
+        <!-- ================= MOBILE SIDEBAR ================= -->
+        <div id="mobileSidebar" class="fixed top-0 right-[-100%] w-[280px] h-screen bg-white z-[90] shadow-2xl transition-all duration-500 ease-in-out">
+            <div class="flex flex-col h-full">
+                <!-- TOP -->
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+                    <h2 class="text-2xl font-extrabold tracking-wide">
+                        NEXT
+                        <span class="text-yellow-400">GROW</span>
+                        TECH
+                    </h2>
+                    <button id="closeMenu" class="text-2xl hover:text-yellow-400 duration-300">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <!-- LINKS -->
+                <div class="flex flex-col p-6 gap-6 text-[16px] font-semibold">
+                    <a href="#services" class="mobile-link hover:text-yellow-400 duration-300">
+                        Services
+                    </a>
+                    <a href="#about" class="mobile-link hover:text-yellow-400 duration-300">
+                        About
+                    </a>
+                    <a href="#results" class="mobile-link hover:text-yellow-400 duration-300">
+                        Results
+                    </a>
+                    <a href="#stories" class="mobile-link hover:text-yellow-400 duration-300">
+                        Stories
+                    </a>
+                    <a href="#testimonials" class="mobile-link hover:text-yellow-400 duration-300">
+                        Clients
+                    </a>
+                    <a href="#contact" class="mobile-link hover:text-yellow-400 duration-300">
+                        Contact
+                    </a>
+                </div>
+                <!-- BOTTOM BUTTON -->
+                <div class="mt-auto p-6">
+                    <a href="#contact" class="w-full flex items-center justify-center bg-yellow-400 hover:bg-black hover:text-white duration-300 py-4 rounded-full font-semibold">
+                        Get Started 🚀
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- ================= HERO ================= -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden px-5 pt-24">
+            <!-- BG -->
+            <div class="absolute top-[-120px] right-[-100px] w-[350px] h-[350px] bg-yellow-300 rounded-full blur-3xl opacity-20"></div>
+            <div class="max-w-6xl mx-auto text-center relative z-10">
+                <div class="hero-badge inline-block bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold text-xs md:text-sm mb-5">
+                    DIGITAL MARKETING EXCELLENCE
+                </div>
+                <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-5">
+                    Grow Your Business
+                    <br>
+                    <span class="gradient-text">
+                        Drive Real Results
+                    </span>
+                </h1>
+                <p class="hero-text text-gray-600 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    Expert Google Ads, Meta Ads, SEO, and lead generation strategies
+      that deliver measurable ROI for your business.
+                </p>
+                <div class="hero-btns flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                    <a href="#contact" class="bg-yellow-400 hover:bg-black hover:text-white duration-300 px-7 py-3 rounded-full text-sm md:text-base font-semibold shadow-lg">
+                        Start Your Campaign 🚀
+                    </a>
+                    <a href="#results" class="border-2 border-black hover:bg-black hover:text-white duration-300 px-7 py-3 rounded-full text-sm md:text-base font-semibold">
+                        View Case Studies
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ================= STATS ================= -->
+        <section class="bg-black text-white py-16">
+            <div class="max-w-7xl mx-auto px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="stats-card text-center bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <h2 class="text-4xl font-extrabold text-yellow-400">500+</h2>
+                    <p class="mt-3 text-gray-300 text-sm">Happy Clients</p>
+                </div>
+                <div class="stats-card text-center bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <h2 class="text-4xl font-extrabold text-yellow-400">2000+</h2>
+                    <p class="mt-3 text-gray-300 text-sm">Campaigns Launched</p>
+                </div>
+                <div class="stats-card text-center bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <h2 class="text-4xl font-extrabold text-yellow-400">350%</h2>
+                    <p class="mt-3 text-gray-300 text-sm">Average ROI Increase</p>
+                </div>
+                <div class="stats-card text-center bg-zinc-900 rounded-3xl p-8 card-hover">
+                    <h2 class="text-4xl font-extrabold text-yellow-400">24/7</h2>
+                    <p class="mt-3 text-gray-300 text-sm">Support Available</p>
+                </div>
+            </div>
+        </section>
+        <!-- ================= SERVICES ================= -->
+        <section id="services" class="py-20 px-5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+                        Our
+                        <span class="text-yellow-400">Services</span>
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        Comprehensive digital marketing solutions to scale your business
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            Google Ads Management
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Drive targeted traffic and maximize ROI with expertly managed campaigns.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Keyword Research</li>
+                            <li>✓ Ad Copywriting</li>
+                            <li>✓ Campaign Optimization</li>
+                            <li>✓ Performance Tracking</li>
+                        </ul>
+                    </div>
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-brands fa-meta"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            Meta Ads
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Reach your ideal audience with high-converting Meta campaigns.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Audience Targeting</li>
+                            <li>✓ Creative Design</li>
+                            <li>✓ A/B Testing</li>
+                            <li>✓ ROI Optimization</li>
+                        </ul>
+                    </div>
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            SEO & Lead Generation
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Generate quality leads and rank higher on Google with advanced SEO.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Technical SEO</li>
+                            <li>✓ Local SEO</li>
+                            <li>✓ Landing Pages</li>
+                            <li>✓ CRM Integration</li>
+                        </ul>
+                    </div>
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            Social Media Marketing
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Build your social presence with engaging content and campaigns.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Content Strategy</li>
+                            <li>✓ Community Management</li>
+                            <li>✓ Social Analytics</li>
+                            <li>✓ Influencer Marketing</li>
+                        </ul>
+                    </div>
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            Website Development
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Create modern responsive websites optimized for conversions.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Responsive Design</li>
+                            <li>✓ SEO Optimized</li>
+                            <li>✓ Fast Loading</li>
+                            <li>✓ Custom Development</li>
+                        </ul>
+                    </div>
+                    <!-- CARD -->
+                    <div class="service-card group border border-gray-200 rounded-3xl p-7 hover:bg-black duration-500 card-hover">
+                        <div class="w-14 h-14 rounded-2xl bg-yellow-400 flex items-center justify-center text-xl mb-5">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">
+                            Email Marketing
+                        </h3>
+                        <p class="text-gray-600 group-hover:text-gray-300 leading-relaxed text-sm">
+                            Increase retention and sales through smart email automation.
+                        </p>
+                        <ul class="mt-5 space-y-3 text-sm text-gray-700 group-hover:text-gray-300">
+                            <li>✓ Email Campaigns</li>
+                            <li>✓ Automation</li>
+                            <li>✓ Funnel Creation</li>
+                            <li>✓ Lead Nurturing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= ABOUT ================= -->
+        <section id="about" class="bg-yellow-50 py-20 px-5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold">
+                        Why Choose
+                        <span class="text-yellow-400">NextGrowTech</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                    <div class="why-card bg-white rounded-3xl p-7 text-center shadow-sm hover:bg-black hover:text-white duration-500 card-hover">
+                        <i class="fa-solid fa-chart-simple text-4xl text-yellow-400 mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3">
+                            Data Driven
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Every decision backed by analytics and performance metrics.
+                        </p>
+                    </div>
+                    <div class="why-card bg-white rounded-3xl p-7 text-center shadow-sm hover:bg-black hover:text-white duration-500 card-hover">
+                        <i class="fa-solid fa-medal text-4xl text-yellow-400 mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3">
+                            Proven Results
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            500+ successful campaigns with measurable ROI improvements.
+                        </p>
+                    </div>
+                    <div class="why-card bg-white rounded-3xl p-7 text-center shadow-sm hover:bg-black hover:text-white duration-500 card-hover">
+                        <i class="fa-solid fa-headphones text-4xl text-yellow-400 mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3">
+                            24/7 Support
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Dedicated team ready to assist you anytime.
+                        </p>
+                    </div>
+                    <div class="why-card bg-white rounded-3xl p-7 text-center shadow-sm hover:bg-black hover:text-white duration-500 card-hover">
+                        <i class="fa-solid fa-file-lines text-4xl text-yellow-400 mb-5"></i>
+                        <h3 class="text-xl font-bold mb-3">
+                            Transparent Reports
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Clear reports so you always know your growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= RESULTS ================= -->
+        <section id="results" class="py-20 px-5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+                        Success
+                        <span class="text-yellow-400">Stories</span>
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        Real results from real clients
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <div class="result-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <h3 class="text-xl font-bold mb-5">
+                            E-Commerce Brand
+                        </h3>
+                        <ul class="space-y-4 text-gray-700 text-sm">
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    250%
+                                </span>
+                                increase in traffic
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    180%
+                                </span>
+                                boost in sales
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    5.2x
+                                </span>
+                                ROAS achieved
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="result-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <h3 class="text-xl font-bold mb-5">
+                            B2B Software Company
+                        </h3>
+                        <ul class="space-y-4 text-gray-700 text-sm">
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    500+
+                                </span>
+                                qualified leads
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    40%
+                                </span>
+                                lower CPL
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    25
+                                </span>
+                                enterprise clients
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="result-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <h3 class="text-xl font-bold mb-5">
+                            Restaurant Chain
+                        </h3>
+                        <ul class="space-y-4 text-gray-700 text-sm">
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    300%
+                                </span>
+                                increase in local searches
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    150%
+                                </span>
+                                more customers
+                            </li>
+                            <li>
+                                <span class="text-yellow-400 font-bold text-lg">
+                                    4.8★
+                                </span>
+                                average ratings
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= STORIES ================= -->
+        <section id="stories" class="bg-black py-20 px-5 text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+                        Client
+                        <span class="text-yellow-400">Stories</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm md:text-base">
+                        Businesses transformed with our marketing strategies
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <div class="story-card bg-zinc-900 rounded-3xl p-7 border border-zinc-800">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">
+                            Fashion Brand
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-7">
+                            Increased online visibility and achieved 5x sales growth using
+          Google Ads and Instagram campaigns.
+                        </p>
+                    </div>
+                    <div class="story-card bg-zinc-900 rounded-3xl p-7 border border-zinc-800">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">
+                            Startup Company
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-7">
+                            Generated 1000+ qualified leads through SEO, LinkedIn marketing
+          and automated lead funnels.
+                        </p>
+                    </div>
+                    <div class="story-card bg-zinc-900 rounded-3xl p-7 border border-zinc-800">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">
+                            Local Business
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-7">
+                            Boosted local reach and increased daily walk-ins using Local SEO
+          and Google Business optimization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= TESTIMONIALS ================= -->
+        <section id="testimonials" class="py-20 px-5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">
+                        What Our
+                        <span class="text-yellow-400">Clients Say</span>
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        Trusted by businesses across India
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <div class="testimonial-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <i class="fa-solid fa-quote-left text-4xl text-yellow-400 mb-5"></i>
+                        <p class="text-gray-600 text-sm leading-7 mb-5">
+                            NextGrowTech transformed our digital presence completely.
+          Our leads increased by 400% in just 3 months.
+                        </p>
+                        <h4 class="font-bold text-lg">
+                            Rajesh Kumar
+                        </h4>
+                        <span class="text-yellow-500 text-sm">
+                            CEO, TechVision
+                        </span>
+                    </div>
+                    <div class="testimonial-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <i class="fa-solid fa-quote-left text-4xl text-yellow-400 mb-5"></i>
+                        <p class="text-gray-600 text-sm leading-7 mb-5">
+                            The Meta Ads campaigns delivered excellent ROAS and helped
+          scale our e-commerce business rapidly.
+                        </p>
+                        <h4 class="font-bold text-lg">
+                            Priya Sharma
+                        </h4>
+                        <span class="text-yellow-500 text-sm">
+                            Marketing Director
+                        </span>
+                    </div>
+                    <div class="testimonial-card border border-gray-200 rounded-3xl p-7 shadow-sm hover:shadow-xl duration-500 card-hover">
+                        <i class="fa-solid fa-quote-left text-4xl text-yellow-400 mb-5"></i>
+                        <p class="text-gray-600 text-sm leading-7 mb-5">
+                            Their SEO strategy moved us from page 5 to top Google rankings
+          within a few months.
+                        </p>
+                        <h4 class="font-bold text-lg">
+                            Amit Patel
+                        </h4>
+                        <span class="text-yellow-500 text-sm">
+                            Founder, GrowthCo
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= CONTACT ================= -->
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="py-20 px-5 bg-yellow-50 relative overflow-hidden">
+            <!-- SUCCESS POPUP -->
+            <div id="successPopup" class="fixed top-5 right-[-400px] z-[9999] bg-green-500 text-white px-6 py-4 rounded-2xl shadow-2xl duration-500 font-medium">
+                ✅ Message sent successfully!
+            </div>
+            <!-- ERROR POPUP -->
+            <div id="errorPopup" class="fixed top-5 right-[-400px] z-[9999] bg-red-500 text-white px-6 py-4 rounded-2xl shadow-2xl duration-500 font-medium">
+                ❌ Please fix all errors first
+            </div>
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
+                <!-- FORM -->
+                <div class="contact-form bg-white border border-gray-200 rounded-[30px] p-8 shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-8">
+                        Get In
+                        <span class="text-yellow-400">Touch</span>
+                    </h2>
+                    <form id="contactForm" class="space-y-5">
+                        <!-- NAME -->
+                        <div>
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Full Name"
+                                class="inputField w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:border-yellow-400 text-sm duration-300"
+                            >
+                            <p id="nameError" class="text-red-500 text-xs mt-2 hidden"></p>
+                        </div>
+                        <!-- EMAIL -->
+                        <div>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Email Address"
+                                class="inputField w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:border-yellow-400 text-sm duration-300"
+                            >
+                            <p id="emailError" class="text-red-500 text-xs mt-2 hidden"></p>
+                        </div>
+                        <!-- PHONE -->
+                        <div>
+                            <input
+                                id="phone"
+                                type="tel"
+                                maxlength="10"
+                                placeholder="Phone Number"
+                                class="inputField w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:border-yellow-400 text-sm duration-300"
+                            >
+                            <p id="phoneError" class="text-red-500 text-xs mt-2 hidden"></p>
+                        </div>
+                        <!-- MESSAGE -->
+                        <div>
+                            <textarea
+                                id="message"
+                                rows="5"
+                                placeholder="Tell us about your business..."
+                                class="inputField w-full border border-gray-300 rounded-2xl px-5 py-4 outline-none focus:border-yellow-400 text-sm resize-none duration-300"
+                            ></textarea>
+                            <p id="messageError" class="text-red-500 text-xs mt-2 hidden"></p>
+                        </div>
+                        <!-- BUTTON -->
+                        <button id="submitBtn" type="submit" class="w-full bg-yellow-400 hover:bg-black hover:text-white duration-300 py-4 rounded-full text-sm font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <!-- CONTACT INFO -->
+                <div class="space-y-6">
+                    <div class="bg-black text-white rounded-[30px] p-7">
+                        <i class="fa-solid fa-envelope text-yellow-400 text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">
+                            Email Us
+                        </h3>
+                        <p class="text-gray-300 text-sm">
+                            nextgrowtech@gmail.com
+                        </p>
+                    </div>
+                    <div class="bg-black text-white rounded-[30px] p-7">
+                        <i class="fa-solid fa-phone text-yellow-400 text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">
+                            Call Us
+                        </h3>
+                        <p class="text-gray-300 text-sm">
+                            +91 8920048780
+                        </p>
+                    </div>
+                    <div class="bg-black text-white rounded-[30px] p-7">
+                        <i class="fa-solid fa-location-dot text-yellow-400 text-3xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">
+                            Visit Us
+                        </h3>
+                        <p class="text-gray-300 text-sm">
+                            Dwarka, New Delhi, India
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= FOOTER ================= -->
+        <footer class="bg-black text-white py-10 text-center px-5">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3">
+                NEXT
+                <span class="text-yellow-400">GROW</span>
+                TECH
+            </h2>
+            <p class="text-gray-400 text-sm">
+                © 2026 All Rights Reserved
+            </p>
+        </footer>
+        <!-- ================= GSAP ================= -->
+        <script>
+
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  // ================= MOBILE SIDEBAR =================
+
+  const menuBtn = document.getElementById("menuBtn");
+  const closeMenu = document.getElementById("closeMenu");
+
+  const mobileSidebar =
+    document.getElementById("mobileSidebar");
+
+  const overlay =
+    document.getElementById("overlay");
+
+  const mobileLinks =
+    document.querySelectorAll(".mobile-link");
+
+  const menuIcon =
+    document.getElementById("menuIcon");
+
+  // OPEN MENU
+  menuBtn.addEventListener("click", () => {
+
+    mobileSidebar.style.right = "0";
+
+    overlay.classList.remove("hidden");
+
+    setTimeout(() => {
+      overlay.classList.remove("opacity-0");
+    }, 10);
+
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-xmark");
+
+    document.body.style.overflow = "hidden";
+
+  });
+
+  // CLOSE MENU FUNCTION
+  function closeSidebar() {
+
+    mobileSidebar.style.right = "-100%";
+
+    overlay.classList.add("opacity-0");
+
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+    }, 300);
+
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+
+    document.body.style.overflow = "auto";
+
+  }
+
+  // CLOSE BUTTON
+  closeMenu.addEventListener("click", closeSidebar);
+
+  // OVERLAY CLOSE
+  overlay.addEventListener("click", closeSidebar);
+
+  // MOBILE LINK CLOSE
+  mobileLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      closeSidebar();
+
+    });
+
+  });
+
+  // ================= HERO =================
+
+  gsap.from(".hero-badge",{
+    y:-50,
+    opacity:0,
+    duration:1
+  });
+
+  gsap.from(".hero-title",{
+    y:100,
+    opacity:0,
+    duration:1.2,
+    delay:0.3
+  });
+
+  gsap.from(".hero-text",{
+    y:60,
+    opacity:0,
+    duration:1,
+    delay:0.6
+  });
+
+  // ================= CARD ANIMATION =================
+
+  gsap.utils.toArray(
+    ".service-card, .why-card, .stats-card, .result-card, .story-card, .testimonial-card"
+  ).forEach((card)=>{
+
+    gsap.from(card,{
+      scrollTrigger:{
+        trigger:card,
+        start:"top 85%"
+      },
+      y:80,
+      opacity:0,
+      duration:1
+    });
+
+  });
+
+  // ================= CONTACT =================
+
+  gsap.from(".contact-form",{
+    scrollTrigger:{
+      trigger:".contact-form",
+      start:"top 85%"
+    },
+    x:-100,
+    opacity:0,
+    duration:1.2
+  });
+
+  // ================= SMOOTH SCROLL =================
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+      e.preventDefault();
+
+      const target =
+        document.querySelector(
+          this.getAttribute("href")
+        );
+
+      gsap.to(window,{
+        duration:1,
+        scrollTo:{
+          y:target,
+          offsetY:80
+        },
+        ease:"power2.out"
+      });
+
+    });
+
+  });
+        </script>
+        <script>
+        const contactForm = document.getElementById("contactForm");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const messageInput = document.getElementById("message");
+
+const submitBtn = document.getElementById("submitBtn");
+
+const successPopup = document.getElementById("successPopup");
+const errorPopup = document.getElementById("errorPopup");
+
+
+// ================= SHOW ERROR =================
+
+function showError(input,errorId,message){
+
+    const error = document.getElementById(errorId);
+
+    error.innerText = message;
+
+    error.classList.remove("hidden");
+
+    input.classList.add(
+        "border-red-500",
+        "focus:border-red-500"
+    );
+
+}
+
+
+// ================= REMOVE ERROR =================
+
+function removeError(input,errorId){
+
+    const error = document.getElementById(errorId);
+
+    error.classList.add("hidden");
+
+    input.classList.remove(
+        "border-red-500",
+        "focus:border-red-500"
+    );
+
+}
+
+
+// ================= POPUPS =================
+
+function showSuccessPopup(){
+
+    successPopup.style.right = "20px";
+
+    setTimeout(()=>{
+
+        successPopup.style.right = "-400px";
+
+    },3000);
+
+}
+
+function showErrorPopup(){
+
+    errorPopup.style.right = "20px";
+
+    setTimeout(()=>{
+
+        errorPopup.style.right = "-400px";
+
+    },3000);
+
+}
+
+
+// ================= VALIDATION =================
+
+function validateName(){
+
+    const value = nameInput.value.trim();
+
+    const nameRegex = /^[A-Za-z ]{3,50}$/;
+
+    if(value === ""){
+
+        showError(
+            nameInput,
+            "nameError",
+            "Full name is required"
+        );
+
+        return false;
+
+    }
+
+    if(!nameRegex.test(value)){
+
+        showError(
+            nameInput,
+            "nameError",
+            "Enter valid full name"
+        );
+
+        return false;
+
+    }
+
+    removeError(nameInput,"nameError");
+
+    return true;
+
+}
+
+
+function validateEmail(){
+
+    const value = emailInput.value.trim();
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(value === ""){
+
+        showError(
+            emailInput,
+            "emailError",
+            "Email is required"
+        );
+
+        return false;
+
+    }
+
+    if(!emailRegex.test(value)){
+
+        showError(
+            emailInput,
+            "emailError",
+            "Enter valid email address"
+        );
+
+        return false;
+
+    }
+
+    removeError(emailInput,"emailError");
+
+    return true;
+
+}
+
+
+function validatePhone(){
+
+    const value = phoneInput.value.trim();
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    if(value === ""){
+
+        showError(
+            phoneInput,
+            "phoneError",
+            "Phone number is required"
+        );
+
+        return false;
+
+    }
+
+    if(!phoneRegex.test(value)){
+
+        showError(
+            phoneInput,
+            "phoneError",
+            "Enter valid Indian phone number"
+        );
+
+        return false;
+
+    }
+
+    removeError(phoneInput,"phoneError");
+
+    return true;
+
+}
+
+
+function validateMessage(){
+
+    const value = messageInput.value.trim();
+
+    if(value === ""){
+
+        showError(
+            messageInput,
+            "messageError",
+            "Message is required"
+        );
+
+        return false;
+
+    }
+
+    if(value.length < 20){
+
+        showError(
+            messageInput,
+            "messageError",
+            "Message must contain at least 20 characters"
+        );
+
+        return false;
+
+    }
+
+    removeError(messageInput,"messageError");
+
+    return true;
+
+}
+
+
+// ================= LIVE VALIDATION =================
+
+nameInput.addEventListener("keyup",validateName);
+
+emailInput.addEventListener("keyup",validateEmail);
+
+phoneInput.addEventListener("keyup",validatePhone);
+
+messageInput.addEventListener("keyup",validateMessage);
+
+
+// ================= SUBMIT =================
+
+contactForm.addEventListener("submit",async function(e){
+
+    e.preventDefault();
+
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isPhoneValid = validatePhone();
+    const isMessageValid = validateMessage();
+
+    if(
+        !isNameValid ||
+        !isEmailValid ||
+        !isPhoneValid ||
+        !isMessageValid
+    ){
+
+        showErrorPopup();
+
+        return;
+
+    }
+
+    // LOADING
+
+    submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
+
+    try{
+
+        // ================= API CALL =================
+
+        const response = await fetch(
+            "https://formspree.io/f/YOUR_FORM_ID",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    name:nameInput.value.trim(),
+                    email:emailInput.value.trim(),
+                    phone:phoneInput.value.trim(),
+                    message:messageInput.value.trim()
+                })
+            }
+        );
+
+        if(response.ok){
+
+            showSuccessPopup();
+
+            contactForm.reset();
+
+        }else{
+
+            showErrorPopup();
+
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+        showErrorPopup();
+
+    }
+
+    submitBtn.innerHTML = "Send Message";
+    submitBtn.disabled = false;
+
+});
+        </script>
+    </body>
+</html>

@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+nav img{
+    width: 120px;
+}
+
+nav input {
+    width: 350px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.pro, .cart i, .down i {
+    font-size: 20px;
+}
+
+.pro p, .cart p , .down p {
+    font-size: 12px;
+}
+
+.sec-nav{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    border: 1px solid rgb(234,230,230);
+    border-left: none;
+    border-right: none;
+    padding: 20px;
+    margin-top: 0px;
+    font-weight: 800px;
+}
+
+.sec-nav p:hover{
+    color: pink;
+    cursor: pointer;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+ margin-top: 44px;
+}
+
+.main .text{
+    width: 500px;
+    background-color: rgb(245, 242, 242);
+
+}
+
+.main .text h1{
+    font-size: 50px;
+    margin-top: 11px;
+    margin-left: 10px;
+}
+
+.main .text .txt{
+    display: flex;
+    justify-content: center;
+}
+
+.main .text .txt h2{
+    margin-inline: 11px;
+    margin-top: 22px;
+}
+
+.main .text button{
+    width: 300px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.main .text button:hover{
+background-color: transparent;
+border: 3px solid red;
+color: blue;
+}
+
+.top-cat h1{
+    text-align: center;
+    margin-top: 44px;
+padding: 22px;
+}
+
+.top-cat .fs{
+display: flex;
+justify-content: center;
+background-color: rgb(251, 225, 229);
+margin-left: 86px;
+width: 1000px;
+}
+
+.top-cat .h1{
+    width: 800px;
+    background-color: pink;
+}
+
+.top-cat .fs-text h1{
+    font-size: 55px;
+    margin-top: 33px;
+}
+
+.BR h1{
+    text-align: center;
+    margin-top: 44px;
+    padding: 22px;
+    font-size: 44px;
+}
+
+.BR img{
+    margin-left: 86px;
+    width: 1000px
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 33px;
+    font-size: 55px;
+    margin-bottom: 33px;
+}
+
+.card{
+    margin-top: 33px;
+}
+
+.crd {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.crd .img{
+    border: 1px solid rgb(234,230,230))
+}
+
+.crd .img img{
+   width: 82%;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin-top: 55px;
+    padding: 55px;
+    background-color: pink;
+}
+
+.footer .icons{
+    display: flex;
+}
+
+.footer .list .icons i{
+    margin-block: 11px;
+    font-size: 33px;
+}
+
+.footer .list .fb{
+    color: black;
+}

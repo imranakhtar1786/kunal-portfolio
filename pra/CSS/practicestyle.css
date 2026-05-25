@@ -1,0 +1,65 @@
+body{
+    background-color: pink;    
+}
+h1{
+    color: blue;
+}
+p{
+color: aliceblue;
+}
+<style>
+button{
+    color: #0ffc03;
+}
+#headingOne{
+    color: aqua;
+}
+.myClass{
+    color: black;
+}
+#three{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: underline;
+    line-height: normal
+    font: weight 2px;
+}
+*{
+    font-family: "times new Roman";
+}
+h3{
+    text-align: center;
+    text-transform: capitalize;
+}
+div{
+
+    height: 100px;
+    width: 100px;
+    /*border-width: 2px;
+    background-color: red;
+    border-style: dotted;*/
+    /*border-radius: 10px;*/
+    padding: 20px;
+}
+h1{
+    width: 100px;
+    background-color: azure;
+    border-style: solid;
+    text-align: center;
+}
+div1 {
+    height: 100px;
+    width: 100px;
+    border:2px solid red;
+}
+.contentBox {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black
+}
+div1{
+    font-size: 2em;
+    width: 2em;
+}

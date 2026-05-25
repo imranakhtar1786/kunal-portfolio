@@ -1,0 +1,70 @@
+h1{
+    color: red;
+}
+p{
+    color: pink;
+}
+button{
+    color: green;
+    background-color: violet;
+}
+body{
+    background-color: #329ea8;
+}
+#headinghone{
+    color: pink;
+}
+
+.myClass{
+    color: blue;
+}
+#box{
+    background-color: pink;
+    /*color: blue;*/
+}
+p{
+    text-align: center;
+}
+h1{
+text-align: start;
+text-decoration: blue double underline;    
+}
+h2{
+    text-decoration: line-through;
+}
+#h3{
+    font-weight: normal;
+}
+#h4{
+    font-weight: 800;
+}
+#p2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#one{
+    font-size: 25px;
+    line-height: 2px;
+    text-transform: capitalize;
+}
+#two{
+    font-size: 10px;
+}
+div{
+    background-color: yellow;
+    display: inline;
+    
+}
+button{
+    color: black;
+    display: block;
+}
+div1 {
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+    padding: 25px;
+    display: inline;
+}
+h5{
+    display: none;
+}
